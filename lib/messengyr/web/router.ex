@@ -33,7 +33,9 @@ defmodule Messengyr.Web.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Messengyr.Web do
-  #   pipe_through :api
-  # end
+  scope "/api", Messengyr.Web do
+    pipe_through :api
+
+    resources "/users", UserController, only: [:show]
+  end
 end
